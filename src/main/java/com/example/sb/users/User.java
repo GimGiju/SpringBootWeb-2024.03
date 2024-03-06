@@ -11,14 +11,7 @@ public class User {
 	private int isDeleted;
 
 	public User() { }
-<<<<<<< HEAD
 
-=======
-	
-<<<<<<< HEAD
-=======
-	
->>>>>>> 4cf8e939f9522c7205beb68bd6eb57cc501ffb38
 	public User(String uid, String pwd, String uname, String email) {
 		this.uid = uid;
 		this.pwd = pwd;
@@ -26,11 +19,7 @@ public class User {
 		this.email = email;
 	}
 
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/main
->>>>>>> 4cf8e939f9522c7205beb68bd6eb57cc501ffb38
 	public User(String uid, String pwd, String uname, String email, LocalDate regDate, int isDeleted) {
 		this.uid = uid;
 		this.pwd = pwd;
@@ -39,21 +28,7 @@ public class User {
 		this.regDate = regDate;
 		this.isDeleted = isDeleted;
 	}
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-	public User(String uid, String pwd, String uname, String email) {
-		this.uid = uid;
-		this.pwd = pwd;
-		this.uname = uname;
-		this.email = email;
-	}
-
-=======
->>>>>>> origin/main
->>>>>>> 4cf8e939f9522c7205beb68bd6eb57cc501ffb38
 	@Override
 	public String toString() {
 		return "User [uid=" + uid + ", pwd=" + pwd + ", uname=" + uname + ", email=" + email + ", regDate=" + regDate
