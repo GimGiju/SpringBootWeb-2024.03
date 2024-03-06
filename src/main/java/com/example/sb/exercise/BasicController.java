@@ -90,9 +90,14 @@ public class BasicController {
 		}
 	}
 	
-	@GetMapping("/path/{uid}/{bid}")
+	@GetMapping({"/path/{uid}/{bid}", "/path/{uid}"})
 	@ResponseBody
-	public String path(@PathVariable String uid, @PathVariable int bid) {
+	public String path(@PathVariable String uid, @PathVariable (required=false) Integer bid) {
+		bid = (bid == null) ? 0 : bid;
 		return "<h1>uid=" + uid + ", bid=" + bid +  "</h1>"; 
 	}
+	// 여기까지가 데이터 주고 받기 파라메터,get,RespoonseBody,post
+	// 여기부터 데이터 베이스에서 받고 주기
+	
+	
 }

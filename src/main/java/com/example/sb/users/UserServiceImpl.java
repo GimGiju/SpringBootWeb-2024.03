@@ -56,5 +56,9 @@ public class UserServiceImpl implements UserService {
 		}
 		return WRONG_PASSWORD;
 	}
+<<<<<<< HEAD
 	// 123
+=======
+
+>>>>>>> origin/main
 }
