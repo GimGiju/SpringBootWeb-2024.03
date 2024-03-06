@@ -38,5 +38,26 @@ public class UserController {
 		}
 		return "redirect:/user/list/1";
 	}
+	@GetMapping("/update/{uid}")
+	public String update(@PathVariable String uid, Model model){
+		User user = userSvc.getUserByUid(uid);
+		model.addAttribute("user", user);
+		return "user/update";
+	}
 
+	@PostMapping("/update")
+	public String updateProc(String uid, String pwd, String pwd2, String hashedPwd, String uname, String email){
+		if (pwd != null && pwd.equals(pwd2)){
+			hashedPwd = BCrypt.hashpw(pwd, BCrypt.gensalt());
+			User user = new User(uid, hashedPwd, uname, email);
+			userSvc.updateUser(user);
+		}
+		return "redirect:/user/list/1";
+	}
+
+	@GetMapping("/delete/{uid}")
+	public String delete(@PathVariable String uid){
+		userSvc.deleteUser(uid);
+		return "redirect:/user/list/1";
+	}
 }

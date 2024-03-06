@@ -19,6 +19,8 @@
             <th>email</th>
             <th>regDate</th>
             <th>pwd</th>
+            <th>action</th>
+            <th>action</th>
         </tr>
         <tr th:each="user: ${userList}">                    <!-- th:each가 jsp 의 <br> 느낌-->
             <td th:text="${userStat.count}">1</td>
@@ -27,6 +29,12 @@
             <td th:text="${user.email}">james@gmail.com</td>
             <td th:text="${user.regDate}">2024-03-06</td>
             <td th:text="${user.pwd}">1234</td>
+            <td>
+                <form action="/sb/user/update"><button>수정</button></form>
+            </td>
+            <td>
+                <form action="/sb/user/delete"><button>삭제</button></form>
+            </td>
         </tr>
     </table>
 </body>

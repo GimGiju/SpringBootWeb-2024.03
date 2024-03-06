@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDao uDao;
-	
+
 	@Override
 	public User getUserByUid(String uid) {
 		User user = uDao.getUser(uid);
@@ -36,13 +36,13 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void updateUser(User user) {
 		uDao.updateUser(user);
-		
+
 	}
 
 	@Override
 	public void deleteUser(String uid) {
 		uDao.deleteUser(uid);
-		
+
 	}
 
 	@Override
