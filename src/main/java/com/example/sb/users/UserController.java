@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-	@Autowired private UserService userSvc;				// 이코드로 userService사용 가능
-	
+	@Autowired
+	private UserService userSvc; // 이코드로 userService사용 가능
+
 	@GetMapping("/list/{page}")
 	public String list(@PathVariable int page, Model model) {
 		List<User> list = userSvc.getUserList(page);
@@ -24,18 +25,18 @@ public class UserController {
 	}
 
 	@GetMapping("/register")
-	public String register(){
+	public String register() {
 		return "user/register";
-		}
+	}
+
 	@PostMapping("/register")
-	public String registerProc(String uid, String pwd, String pwd2, String uname, String email){
-		if (userSvc.getUserByUid(uid) == null && pwd.equals(pwd2)){
+	public String registerProc(String uid, String pwd, String pwd2, String uname, String email) {
+		if (userSvc.getUserByUid(uid) == null && pwd.equals(pwd2)) {
 			String hashedPwd = BCrypt.hashpw(pwd, BCrypt.gensalt());
 			User user = new User(uid, hashedPwd, uname, email);
 			userSvc.registerUser(user);
 		}
 		return "redirect:/user/list/1";
 	}
-
 
 }
