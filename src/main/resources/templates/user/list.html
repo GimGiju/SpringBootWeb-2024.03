@@ -8,34 +8,29 @@
         th, td { padding: 3px; }
     </style>
 </head>
-<body>
-    <h1>사용자 목록</h1>
-    <hr>
-    <table border="1">
-        <tr>
-            <th>No.</th>
-            <th>uid</th>
-            <th>uname</th>
-            <th>email</th>
-            <th>regDate</th>
-            <th>pwd</th>
-            <th>action</th>
-            <th>action</th>
-        </tr>
-        <tr th:each="user: ${userList}">                    <!-- th:each가 jsp 의 <br> 느낌-->
-            <td th:text="${userStat.count}">1</td>
-            <td th:text="${user.uid}">james</td>
-            <td th:text="${user.uname}">제임스</td>
-            <td th:text="${user.email}">james@gmail.com</td>
-            <td th:text="${user.regDate}">2024-03-06</td>
-            <td th:text="${user.pwd}">1234</td>
-            <td>
-                <form action="/sb/user/update"><button>수정</button></form>
-            </td>
-            <td>
-                <form action="/sb/user/delete"><button>삭제</button></form>
-            </td>
-        </tr>
-    </table>
+<body style="margin: 50px;">
+<h1>사용자 목록</h1>
+<hr>
+<table border="1">
+    <tr>
+        <th>No.</th>
+        <th>uid</th>
+        <th>이름</th>
+        <th>이메일</th>
+        <th>등록일</th>
+        <th>액션</th>
+    </tr>
+    <tr th:each="user: ${userList}">
+        <td th:text="${userStat.count}">1</td>
+        <td th:text="${user.uid}">james</td>
+        <td th:text="${user.uname}">제임스</td>
+        <td th:text="${user.email}">james@gmail.com</td>
+        <td th:text="${user.regDate}">2024-03-06</td>
+        <td>
+            <a th:href="@{/user/update/{x}(x=${user.uid})}">수정</a>
+            <a th:href="@{/user/delete/{x}(x=${user.uid})}">삭제</a>
+        </td>
+    </tr>
+</table>
 </body>
 </html>
