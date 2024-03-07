@@ -97,7 +97,7 @@ public class BasicController {
 		return "<h1>uid=" + uid + ", bid=" + bid +  "</h1>"; 
 	}
 	// 여기까지가 데이터 주고 받기 파라메터,get,RespoonseBody,post
-	// 여기부터 데이터 베이스에서 받고 주기
+	
 	
 	
 }

@@ -17,7 +17,7 @@ public class UserController {
 	@Autowired
 	private UserService userSvc; // 이코드로 userService사용 가능
 
-	@GetMapping("/list/{page}")
+	@GetMapping({"/list/{page}", "/list"})
 	public String list(@PathVariable int page, Model model) {
 		List<User> list = userSvc.getUserList(page);
 		model.addAttribute("userList", list);
@@ -38,6 +38,12 @@ public class UserController {
 		}
 		return "redirect:/user/list/1";
 	}
+	
+	@GetMapping("/login")
+	public String loginProc(String uid,  String pwd) {
+		if(user)
+	}
+	
 	@GetMapping("/update/{uid}")
 	public String update(@PathVariable String uid, Model model){
 		User user = userSvc.getUserByUid(uid);
