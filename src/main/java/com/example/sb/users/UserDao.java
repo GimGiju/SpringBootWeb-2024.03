@@ -13,7 +13,8 @@ public interface UserDao {
 	@Select("select * from users where uid=#{uid}")
 	User getUser(String uid);
 
-	@Select("select * from users where isDeleted=0 order by regDate desc " + " limit #{count} offset #{offset}")
+	@Select("select * from users where isDeleted=0 order by regDate desc"
+			+ " limit #{count} offset #{offset}")
 	List<User> getUserList(int count, int offset);
 
 	@Insert("insert into users values (#{uid}, #{pwd}, #{uname}, #{email}, default, default)")

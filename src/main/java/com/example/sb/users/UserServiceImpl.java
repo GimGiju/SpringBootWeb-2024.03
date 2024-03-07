@@ -14,7 +14,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User getUserByUid(String uid) {
 		User user = uDao.getUser(uid);
-		return null;
+		return user;
 	}
 
 	@Override
@@ -36,24 +36,20 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void updateUser(User user) {
 		uDao.updateUser(user);
-
 	}
 
 	@Override
 	public void deleteUser(String uid) {
 		uDao.deleteUser(uid);
-
 	}
 
 	@Override
 	public int login(String uid, String pwd) {
 		User user = uDao.getUser(uid);
-		if (user == null) {
+		if (user == null)
 			return USER_NOT_EXIST;
-		}
-		if (BCrypt.checkpw(pwd, user.getPwd())) {
+		if (BCrypt.checkpw(pwd, user.getPwd()))
 			return CORRECT_LOGIN;
-		}
 		return WRONG_PASSWORD;
 	}
 
